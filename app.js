@@ -42,7 +42,7 @@ function sendMessage() {
         );
     };
 
-    addMessage("Me: " + input.value);
+    addMessage("[" + user + "]" + input.value);
 
     input.value = "";
 }
