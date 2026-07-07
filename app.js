@@ -1,5 +1,5 @@
 const socket = new WebSocket(
-    "ws://141.72.144.115:8765"
+    "wss://test-messenger-tl.onrender.com"
 );
 
 const messages =
