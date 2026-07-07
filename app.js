@@ -44,7 +44,7 @@ function sendMessage() {
         );
     };
 
-    addMessage("[" + user + "]" + input.value);
+    addMessage( user + ": " + input.value);
 
     input.value = "";
 }
