@@ -2,7 +2,7 @@ const socket = new WebSocket(
     "wss://test-messenger-tl.onrender.com"
 );
 
-const user = prompt("What is your name ?")
+const user = prompt("What is your name?");
 
 const messages =
     document.getElementById("messages");
@@ -14,7 +14,6 @@ socket.onmessage = (event) => {
     addMessage(
         data.username + ": " + data.message
     );
-
 };
 
 function addMessage(text) {
@@ -30,21 +29,20 @@ function addMessage(text) {
 
 function sendMessage() {
 
-    const input = document.getElementById("messageInput");
-    if (input.value.trim() != ""){
+    const input =
+        document.getElementById("messageInput");
+
+    if (input.value.trim() !== "") {
+
         socket.send(
-            JSON.stringify(
-                {
-                    username: user,
-                    message: input.value
-                }
-            )
-            addMessage( user + ": " + input.value);
+            JSON.stringify({
+                username: user,
+                message: input.value
+            })
         );
-    };
 
-
-    input.value = "";
+        input.value = "";
+    }
 }
 
 socket.onopen = () => {
@@ -58,7 +56,9 @@ socket.onerror = (e) => {
 
 document.getElementById("messageInput")
 .addEventListener("keydown", (event) => {
-    if(event.key === "Enter"){
+
+    if (event.key === "Enter") {
         sendMessage();
     }
+
 });
