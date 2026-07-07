@@ -1,11 +1,30 @@
-<input id="messageInput" placeholder="Message">
+<!DOCTYPE html>
+<html>
 
-<button onclick="sendMessage()">
-    Send
-</button>
+<head>
+    <title>Messenger</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<input type="file" id="imageInput">
+<body>
+
+<div class="chat-container">
+
+    <div id="messages"></div>
+
+    <div class="input-container">
+        <input id="messageInput" placeholder="Message">
+        <button onclick="sendMessage()">
+            Send
+        </button>
+        <input type="file" id="imageInput">
 
 <button onclick="sendImage()">
-    Send Image
-</button>
+    </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>
+</body>
+</html>
