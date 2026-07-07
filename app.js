@@ -27,8 +27,9 @@ function sendMessage() {
         document.getElementById(
             "messageInput"
         );
-
-    socket.send(input.value);
+    if (input.value !="") {
+        socket.send(input.value)
+    };
 
     addMessage("Me: " + input.value);
 
