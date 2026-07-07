@@ -39,10 +39,10 @@ function sendMessage() {
                     message: input.value
                 }
             )
+            addMessage( user + ": " + input.value);
         );
     };
 
-    addMessage( user + ": " + input.value);
 
     input.value = "";
 }
