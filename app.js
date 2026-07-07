@@ -22,12 +22,21 @@ function addMessage(text) {
     const div =
         document.createElement("div");
 
+    const now = new Date();
+
+    const time =
+        now.getHours().toString().padStart(2, "0")
+        + ":" +
+        now.getMinutes().toString().padStart(2, "0");
+
     div.className = "message";
-    div.innerText = text;
+    div.innerText = "[" + time + "] " + text;
 
     messages.appendChild(div);
-}
 
+    messages.scrollTop =
+        messages.scrollHeight;
+}
 function sendMessage() {
 
     const input = document.getElementById("messageInput");
