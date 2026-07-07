@@ -11,33 +11,22 @@ socket.onmessage = (event) => {
 
     const data = JSON.parse(event.data);
 
-    addMessage(
-        data.username + ": " + data.message
+    if (data.type === "image") {
 
-    const data =
-    JSON.parse(event.data);
+        const img = document.createElement("img");
 
-if (data.type === "image") {
+        img.src = data.data;
+        img.style.maxWidth = "250px";
 
-    const img =
-        document.createElement("img");
+        messages.appendChild(img);
 
-    img.src = data.data;
-    img.style.maxWidth = "250px";
+    } else {
 
-    messages.appendChild(img);
+        addMessage(
+            data.username + ": " + data.message
+        );
 
-} else {
-
-    addMessage(
-        data.username +
-        ": " +
-        data.message
-    );
-
-}
-`
-    );
+    }
 
 };
 
