@@ -13,6 +13,30 @@ socket.onmessage = (event) => {
 
     addMessage(
         data.username + ": " + data.message
+
+    const data =
+    JSON.parse(event.data);
+
+if (data.type === "image") {
+
+    const img =
+        document.createElement("img");
+
+    img.src = data.data;
+    img.style.maxWidth = "250px";
+
+    messages.appendChild(img);
+
+} else {
+
+    addMessage(
+        data.username +
+        ": " +
+        data.message
+    );
+
+}
+`
     );
 
 };
