@@ -17,8 +17,6 @@ socket.onmessage = (event) => {
 
 };
 
-};
-
 function addMessage(text) {
 
     const div =
