@@ -31,7 +31,7 @@ function addMessage(text) {
 function sendMessage() {
 
     const input = document.getElementById("messageInput");
-    if (input.value != ""){
+    if (input.value.trim() != ""){
         socket.send(
             JSON.stringify(
                 {
