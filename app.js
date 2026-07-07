@@ -70,3 +70,29 @@ document.getElementById("messageInput")
         sendMessage();
     }
 });
+
+function sendImage() {
+
+    const file =
+        document.getElementById("imageInput")
+        .files[0];
+
+    if (!file) return;
+
+    const reader =
+        new FileReader();
+
+    reader.onload = () => {
+
+        socket.send(
+            JSON.stringify({
+                type: "image",
+                username: user,
+                data: reader.result
+            })
+        );
+
+    };
+
+    reader.readAsDataURL(file);
+}
