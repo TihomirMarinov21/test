@@ -34,8 +34,7 @@ function addMessage(text) {
 
     messages.appendChild(div);
 
-    messages.scrollTop =
-        messages.scrollHeight;
+    messages.scrollTop = messages.scrollHeight;
 }
 function sendMessage() {
 
