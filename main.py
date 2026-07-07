@@ -1,11 +1,14 @@
+
 import asyncio
 import websockets
 import os
 
 PORT = int(os.environ.get("PORT", 8765))
+
 clients = set()
 
 async def handler(websocket):
+
     clients.add(websocket)
 
     try:
@@ -14,8 +17,7 @@ async def handler(websocket):
             print(f"Received: {message}")
 
             for client in clients:
-                if client != websocket:
-                    await client.send(message)
+                await client.send(message)
 
     except:
         pass
@@ -23,11 +25,8 @@ async def handler(websocket):
     finally:
         clients.remove(websocket)
 
-import os
-
-PORT = int(os.environ.get("PORT", 8765))
-
 async def main():
+
     server = await websockets.serve(
         handler,
         "0.0.0.0",
@@ -35,10 +34,6 @@ async def main():
     )
 
     print(f"Server started on port {PORT}")
-
-    await server.wait_closed()
-
-    print("Server started on port 8765")
 
     await server.wait_closed()
 
