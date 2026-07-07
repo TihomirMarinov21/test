@@ -1,6 +1,8 @@
 import asyncio
 import websockets
+import os
 
+PORT = int(os.environ.get("PORT", 8765))
 clients = set()
 
 async def handler(websocket):
@@ -21,12 +23,20 @@ async def handler(websocket):
     finally:
         clients.remove(websocket)
 
+import os
+
+PORT = int(os.environ.get("PORT", 8765))
+
 async def main():
     server = await websockets.serve(
         handler,
         "0.0.0.0",
-        8765
+        PORT
     )
+
+    print(f"Server started on port {PORT}")
+
+    await server.wait_closed()
 
     print("Server started on port 8765")
 
