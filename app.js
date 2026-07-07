@@ -2,12 +2,19 @@ const socket = new WebSocket(
     "wss://test-messenger-tl.onrender.com"
 );
 
+const user = prompt("What is your name ?")
+
 const messages =
     document.getElementById("messages");
 
 socket.onmessage = (event) => {
 
-    addMessage(event.data);
+    const data = JSON.parse(event.data);
+
+    addMessage(
+        data.username + ": " + data.message
+    );
+
 };
 
 function addMessage(text) {
@@ -23,12 +30,16 @@ function addMessage(text) {
 
 function sendMessage() {
 
-    const input =
-        document.getElementById(
-            "messageInput"
+    const input = document.getElementById("messageInput");
+    if (input.value != ""){
+        socket.send(
+            JSON.stringify(
+                {
+                    username: user,
+                    message: input.value
+                }
+            )
         );
-    if (input.value !="") {
-        socket.send(input.value)
     };
 
     addMessage("Me: " + input.value);
