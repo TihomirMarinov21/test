@@ -34,3 +34,12 @@ function sendMessage() {
 
     input.value = "";
 }
+
+socket.onopen = () => {
+    console.log("CONNECTED TO RENDER");
+};
+
+socket.onerror = (e) => {
+    console.log("ERROR");
+    console.log(e);
+};
