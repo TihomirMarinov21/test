@@ -43,3 +43,10 @@ socket.onerror = (e) => {
     console.log("ERROR");
     console.log(e);
 };
+
+document.getElementById("messageInput")
+.addEventListener("keydown", (event) => {
+    if(event.key === "Enter"){
+        sendMessage();
+    }
+});
