@@ -30,7 +30,7 @@ function addMessage(text) {
         now.getMinutes().toString().padStart(2, "0");
 
     div.className = "message";
-    div.innerText = "[" + time + "] " + text;
+    div.innerText = text + " [" + time + "]";
 
     messages.appendChild(div);
 
