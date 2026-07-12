@@ -3,28 +3,28 @@
 
 <head>
     <title>Messenger</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!--link zum style sheet-->
 </head>
 
 <body>
 
-<div class="chat-container">
+<div class="chat-container"> <!-- container für chatbox -->
 
-    <div id="messages"></div>
+    <div id="messages"></div> <!-- container für nachrichten/chat -->
 
-    <div class="input-container">
+    <div class="input-container"> <!-- container für eingabefeld -->
         <input id="messageInput" placeholder="Message">
-        <button onclick="sendMessage()">
+        <button onclick="sendMessage()"> <!-- erstelle button, wenn geklickt, führe SendMessage() aus in JS -->
             Send
         </button>
-        <input type="file" id="imageInput">
-        <button onclick="sendImage()">
+        <input type="file" id="imageInput"> <!-- anderes input feld für dateien-->
+        <button onclick="sendImage()"> <!-- beim klikcen führe SendImage() aus in JS -->
             Send
         </button>
     </div>
 
 </div>
-<script src="app.js"></script>
+<script src="app.js"></script> <!-- link zum JS -->
 </body>
 </html>
 </body>
